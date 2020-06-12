@@ -1,2 +1,6 @@
 # python_finance_securities
-repo built using individual preferences and some help / assistance from o' reilly, 365 careers. 
+objective: analyzing risk / return of securities, simulating portfolio weights for optimal allocation. built using individual preferences, and for tracking market trends.
+
+citation: o' reilly, 365 careers. 
+
+

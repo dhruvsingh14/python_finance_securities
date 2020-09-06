@@ -1,6 +1,6 @@
-####################################
-# 3.2: Efficient Frontier: Part II #
-####################################
+#####################################
+# 3.3: Efficient Frontier: Part III #
+#####################################
 
 #######################
 # importing libraries #
@@ -40,25 +40,9 @@ num_assets = len(assets)
 weights = np.random.random(num_assets)
 weights /= np.sum(weights)
 
-#############################
-# expected portfolio return #
-#############################
-print(np.sum(weights * log_returns.mean() * 250))
-
-###############################
-# expected portfolio variance #
-###############################
-print(np.dot(weights.T, np.dot(log_returns.cov() * 250, weights)))
-
-#################################
-# expected portfolio volatility #
-#################################
-print(np.sqrt(np.dot(weights.T, np.dot(log_returns.cov() * 250, weights))))
-
 ######################
 # simulating weights #
 ######################
-
 pfolio_returns = []
 pfolio_volatilities = []
 
@@ -74,7 +58,44 @@ for x in range (1000):
 pfolio_returns = np.array(pfolio_returns)
 pfolio_volatilities = np.array(pfolio_volatilities)
 
-print(pfolio_returns, pfolio_volatilities)
+#######################
+# simulated dataframe #
+#######################
+# assigning simulated weights to a dictionary
+portfolios = pd.DataFrame({'Return': pfolio_returns, 'Volatility': pfolio_volatilities})
+
+# printing dataframe head, and tail
+print(portfolios.head())
+print(portfolios.tail())
+
+
+portfolios.plot(x='Volatility', y='Return', kind='scatter', figsize=(10,6));
+plt.xlabel('Expected Volatility')
+plt.ylabel('Expected Return')
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
